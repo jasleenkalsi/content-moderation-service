@@ -91,3 +91,26 @@ export const flagUser = (req: Request, res: Response): void => {
 		},
 	});
 };
+
+/**
+ * Flag a post by ID
+ * @param req - Express request object
+ * @param res - Express response object
+ */
+export const flagPost = (req: Request, res: Response): void => {
+    const { reason } = req.body;
+
+    if (!reason) {
+        res.status(400).json({ message: "Reason for flagging is required" });
+        return;
+    }
+
+    res.status(200).json({
+        message: "Post flagged successfully",
+        data: {
+            postId: req.params.id,
+            reason,
+            flaggedAt: new Date().toISOString(),
+        },
+    });
+};
