@@ -5,8 +5,10 @@ import {
     getPostById, 
     getUserProfile, 
     getFlaggedContentStats, 
-    flagPost 
+    flagPost,
 } from "../controllers/moderationController";
+import { validateFlagging } from "../middleware/validationMiddleware";
+
 
 const router: Router = Router();
 
@@ -15,6 +17,7 @@ router.post("/post/:id/moderate", moderatePost);
 router.get("/user/:id/profile", getUserProfile);
 router.post("/user/:id/flag", flagUser);
 router.post("/post/:id/flag", flagPost);
+router.post("/post/:id/flag", validateFlagging, flagPost);
 router.get("/content/flags/stats", getFlaggedContentStats);
 
 export default router;
