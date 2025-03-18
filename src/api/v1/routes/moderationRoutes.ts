@@ -16,8 +16,8 @@ router.get("/post/:id", getPostById);
 router.post("/post/:id/moderate", moderatePost);
 router.get("/user/:id/profile", getUserProfile);
 router.post("/user/:id/flag", flagUser);
-router.post("/post/:id/flag", flagPost);
-router.post("/post/:id/flag", validateFlagging, flagPost);
+router.post("/post/:id/flag", flagPost);  //added the flag post
+router.post("/post/:id/flag", validateFlagging); //validate the flag
 router.get("/content/flags/stats", getFlaggedContentStats);
 
 export default router;
