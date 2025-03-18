@@ -77,6 +77,10 @@ export const moderatePost = (req: Request, res: Response): void => {
 };
 
 /**
+ * ✅ Ticket #2 (MOD-502) Change:
+ * - Moved sensitive data like `PORT`, `DATABASE_URL`, and `API_SECRET_KEY` to `.env` file
+ */
+/**
  * Flag a user by ID
  * @param req - Express request object
  * @param res - Express response object
